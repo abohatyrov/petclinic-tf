@@ -1,11 +1,13 @@
 output "network_id" {
-  value = google_compute_network.petclinic-vpc-tf.id
+  value = google_compute_network.petclinic-app.id
 }
 
 output "network_name" {
-  value = google_compute_network.petclinic-vpc-tf.name
+  value = google_compute_network.petclinic-app.name
 }
 
 output "subnet" {
-  value = google_compute_subnetwork.petclinic-subnet-tf-eu-west1.id
+  value = [
+    for subnet in google_compute_subnetwork.petclinic-app : subnet.id
+  ]
 }

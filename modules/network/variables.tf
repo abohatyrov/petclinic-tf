@@ -19,10 +19,12 @@ variable "network" {
 }
 
 variable "subnetwork" {
-  type    = object({
-    name     = string
-    ip_range = string
-  })
+  type  = map(object({
+    name    = string
+    range   = string
+    region  = string
+    private = bool
+  }))
 }
 
 variable "ip_name" {
