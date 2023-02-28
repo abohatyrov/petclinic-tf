@@ -6,8 +6,12 @@ module "petclinic_network" {
   network = "petclinic-vpc-tf"
 
   subnetwork = {
-    name     = "petclinic-subnet-tf-eu-west1"
-    ip_range = "10.24.5.0/24"
+    subnet_eu = {
+      name    = "petclinic-subnet-tf-eu-west1"
+      range   = "10.24.5.0/24"
+      region  = var.region
+      private = true
+    }
   }
 
   firewall = {
@@ -32,6 +36,6 @@ module "jenkins_instance" {
   project         = jsondecode(file("petclinic-app-94cd559f8bb4.json")).project_id
   instance_name   = "jenkins-server"
   network         = module.petclinic_network.network_id
-  subnetwork      = module.petclinic_network.subnet
+  subnetwork      = module.petclinic_network.subnet[0]
   tags            = ["web", "ssh",]
 }
