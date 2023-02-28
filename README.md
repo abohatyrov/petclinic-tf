@@ -35,7 +35,7 @@ terraform {
 ```
 
 ### Modules
-##### 1. Compute instance module:
+#### 1. Compute instance module:
   Configure an instance on Debian 11, attached service account for project, e2-medium type, and ephermal public ip address.
 ```terraform
 module "example_instance" {
@@ -50,7 +50,7 @@ module "example_instance" {
 ```
   _Note: This module was used to create Jenkins Server._
 
-##### 2. Network module:
+#### 2. Network module:
   Creates VPC network, subnetworks, firewall rules, router, and NAT router for project.
 ```terraform
 module "example_network" {
@@ -82,3 +82,9 @@ module "example_network" {
 }
 ```
   _Note: VPC, subnet and firewall was used in Jenkins Server._
+
+
+### TO-DO:
+[] Create bucket for artifacts
+[] Update network module
+  [] Subnetwork creation. Add the ability to create several subnets
