@@ -8,7 +8,7 @@ Infrastructure as Code for Petclinic project
 - [ ] Create bucket for artifacts
 - [x] Update network module:
   - [x] Subnetwork creation. Add the ability to create several subnets
-- [ ] Add Lenkins startup script using templating
+- [ ] Add Jenkins startup script using templating
 - [ ] Start use terrafrom auto documentation
 
 ---
@@ -71,9 +71,13 @@ module "example_network" {
   project = jsondecode(file("credentials.json")).project_id # JSON file with credentials
   network = "example-vpc-tf"                                # VPC network name
 
-  subnetwork = {  # Subnetwork name and ip range
-    name     = "example-subnet-tf-eu-west1"
-    ip_range = "10.24.5.0/24"
+  subnetwork = {
+    subnet_eu = {
+      name    = "example-subnet-tf-eu-west1"
+      range   = "10.24.5.0/24"
+      region  = var.region
+      private = true
+    }
   }
 
   firewall = {  # Firewall rules in a dictionary format
