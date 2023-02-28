@@ -33,3 +33,19 @@ terraform {
   }
 }
 ```
+
+### Modules
+1. Compute instance module:\
+Configure an instance on Debian 11, attached service account for project, e2-medium type, and ephermal public ip address.
+```terraform
+module "example_instance" {
+  source = "./modules/compute_instance"
+
+  project         = jsondecode(file("credentials.json")).project_id
+  instance_name   = "example-name"
+  network         = module.petclinic_network.network_id
+  subnetwork      = module.petclinic_network.subnet
+  tags            = ["web", "ssh",]
+}
+```
+_Note: This module was used to create Jenkins Server._
