@@ -8,6 +8,7 @@ Infrastructure as Code for Petclinic project
 - [ ] Create bucket for artifacts
 - [ ] Update network module:
   - [ ] Subnetwork creation. Add the ability to create several subnets
+- [ ] Start use terrafrom auto documentation
 
 ---
 
