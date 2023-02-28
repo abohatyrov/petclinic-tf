@@ -2,6 +2,15 @@
 
 Infrastructure as Code for Petclinic project
 
+=====
+
+### TO-DO:
+- [ ] Create bucket for artifacts
+- [ ] Update network module:
+  - [ ] Subnetwork creation. Add the ability to create several subnets
+
+=====
+
 ### Structure
 ```
 📦petclinic-tf
@@ -82,9 +91,3 @@ module "example_network" {
 }
 ```
   _Note: VPC, subnet and firewall was used in Jenkins Server._
-
-
-### TO-DO:
-- [ ] Create bucket for artifacts
-- [ ] Update network module
-  - [ ] Subnetwork creation. Add the ability to create several subnets
