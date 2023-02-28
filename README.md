@@ -6,8 +6,9 @@ Infrastructure as Code for Petclinic project
 
 ## TO-DO:
 - [ ] Create bucket for artifacts
-- [ ] Update network module:
-  - [ ] Subnetwork creation. Add the ability to create several subnets
+- [*] Update network module:
+  - [*] Subnetwork creation. Add the ability to create several subnets
+- [ ] Add Lenkins startup script using templating
 - [ ] Start use terrafrom auto documentation
 
 ---
