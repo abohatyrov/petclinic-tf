@@ -1,17 +1,17 @@
-# petclinic-tf
+# Petclinic Infrastructure as a Code
 
 Infrastructure as Code for Petclinic project
 
 ---
 
-### TO-DO:
+## TO-DO:
 - [ ] Create bucket for artifacts
 - [ ] Update network module:
   - [ ] Subnetwork creation. Add the ability to create several subnets
 
 ---
 
-### Structure
+## Structure
 ```
 📦petclinic-tf
  ┣ 📂modules
@@ -24,7 +24,7 @@ Infrastructure as Code for Petclinic project
  ┗ 📜variables.tf
 ```
 
-### Backend and provider
+## Backend and provider
 
 This project uses Google Cloud Platform as a cloud provide therefore, Google provider was used for terraform. As a backend was used `gcs` bucket.
 ```terraform
@@ -43,8 +43,8 @@ terraform {
 }
 ```
 
-### Modules
-#### 1. Compute instance module:
+## Modules
+### 1. Compute instance module:
   Configure an instance on Debian 11, attached service account for project, e2-medium type, and ephermal public ip address.
 ```terraform
 module "example_instance" {
@@ -59,7 +59,7 @@ module "example_instance" {
 ```
   _Note: This module was used to create Jenkins Server._
 
-#### 2. Network module:
+### 2. Network module:
   Creates VPC network, subnetworks, firewall rules, router, and NAT router for project.
 ```terraform
 module "example_network" {
