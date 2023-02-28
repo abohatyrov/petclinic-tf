@@ -18,7 +18,7 @@ Infrastructure as Code for Petclinic project
 ### Backend and provider
 
 This project uses Google Cloud Platform as a cloud provide therefore, Google provider was used for terraform. As a backend was used `gcs` bucket.
-```
+```json
 terraform {
   required_providers {
     google = {
