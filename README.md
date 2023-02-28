@@ -2,14 +2,14 @@
 
 Infrastructure as Code for Petclinic project
 
-===
+------
 
 ### TO-DO:
 - [ ] Create bucket for artifacts
 - [ ] Update network module:
   - [ ] Subnetwork creation. Add the ability to create several subnets
 
-===
+------
 
 ### Structure
 ```
