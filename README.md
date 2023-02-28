@@ -35,8 +35,8 @@ terraform {
 ```
 
 ### Modules
-##### 1. Compute instance module:\
-Configure an instance on Debian 11, attached service account for project, e2-medium type, and ephermal public ip address.
+##### 1. Compute instance module:
+  Configure an instance on Debian 11, attached service account for project, e2-medium type, and ephermal public ip address.
 ```terraform
 module "example_instance" {
   source = "./modules/compute_instance"
@@ -47,11 +47,11 @@ module "example_instance" {
   subnetwork      = module.petclinic_network.subnet
   tags            = ["web", "ssh",]
 }
-```\
-_Note: This module was used to create Jenkins Server._
+```
+  _Note: This module was used to create Jenkins Server._
 
-##### 2. Network module:\
-Creates VPC network, subnetworks, firewall rules, router, and NAT router for project.
+##### 2. Network module:
+  Creates VPC network, subnetworks, firewall rules, router, and NAT router for project.
 ```terraform
 module "example_network" {
   source = "./modules/network"
@@ -80,5 +80,5 @@ module "example_network" {
     }
   }
 }
-```\
-_Note: VPC, subnet and firewall was used in Jenkins Server._
+```
+  _Note: VPC, subnet and firewall was used in Jenkins Server._
