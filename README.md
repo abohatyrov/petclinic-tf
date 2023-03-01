@@ -54,11 +54,11 @@ terraform {
 module "example_instance" {
   source = "./modules/compute_instance"
 
-  project         = jsondecode(file("credentials.json")).project_id # JSON file with credentials
-  instance_name   = "example-name"                                  # Instance name
-  network         = module.petclinic_network.network_id             # VPC network id
-  subnetwork      = module.petclinic_network.subnet                 # Subnetwork name
-  tags            = ["web", "ssh",]                                 # Tags fo firewall
+  project         = local.project_id                     # JSON file with credentials
+  instance_name   = var.jenkins_name                     # Instance name
+  network         = module.petclinic_network.network_id  # VPC network id
+  subnetwork      = module.petclinic_network.subnet      # Subnetwork name
+  tags            = ["web", "ssh",]                      # Tags fo firewall
 }
 ```
   _Note: This module was used to create Jenkins Server._
@@ -69,13 +69,13 @@ module "example_instance" {
 module "example_network" {
   source = "./modules/network"
 
-  region  = var.region
-  project = jsondecode(file("credentials.json")).project_id # JSON file with credentials
-  network = "example-vpc-tf"                                # VPC network name
+  project = local.project_id  # JSON file with credentials
+  region  = var.region        # Region
+  network = var.network_name  # VPC network name
 
   subnetwork = {
     subnet_eu = {
-      name    = "example-subnet-tf-eu-west1"
+      name    = var.subnetwork_name
       range   = "10.24.5.0/24"
       region  = var.region
       private = true
