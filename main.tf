@@ -1,8 +1,12 @@
+locals {
+  project_id = jsondecode(file("petclinic-app-94cd559f8bb4.json")).project_id
+}
+
 module "petclinic_network" {
   source = "./modules/network"
 
+  project = local.project_id
   region  = var.region
-  project = jsondecode(file("petclinic-app-94cd559f8bb4.json")).project_id
   network = var.network_name
 
   subnetwork = {
@@ -33,7 +37,7 @@ module "petclinic_network" {
 module "jenkins_instance" {
   source = "./modules/compute_instance"
 
-  project         = jsondecode(file("petclinic-app-94cd559f8bb4.json")).project_id
+  project         = local.project_id
   instance_name   = var.jenkins_name
   network         = module.petclinic_network.network_id
   subnetwork      = module.petclinic_network.subnet[0]
@@ -43,7 +47,7 @@ module "jenkins_instance" {
 module "artifacts_bucket" {
   source = "./modules/bucket"
 
-  project         = jsondecode(file("petclinic-app-94cd559f8bb4.json")).project_id
+  project         = local.project_id
   bucket_name     = "petclinic-artifacts-tf"
   storage_class   = "STANDARD"
   private         = true
