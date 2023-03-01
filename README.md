@@ -5,7 +5,7 @@ Infrastructure as Code for Petclinic project
 ---
 
 ## TO-DO:
-- [ ] Create bucket for artifacts
+- [x] Create bucket for artifacts
 - [x] Update network module:
   - [x] Subnetwork creation. Add the ability to create several subnets
 - [ ] Add Jenkins startup script using templating
@@ -17,12 +17,14 @@ Infrastructure as Code for Petclinic project
 ```
 📦petclinic-tf
  ┣ 📂modules
+ ┃ ┣ 📂bucket
  ┃ ┣ 📂compute_instance
  ┃ ┗ 📂network
  ┣ 📜backend.tf
  ┣ 📜main.tf
  ┣ 📜outputs.tf
  ┣ 📜provider.tf
+ ┣ 📜terraform.tfvars
  ┗ 📜variables.tf
 ```
 
