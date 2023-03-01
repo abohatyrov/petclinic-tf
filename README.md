@@ -103,7 +103,7 @@ module "example_network" {
 
 ### 3. Bucket module:
   Create private or public bucket with different storage classes. 
-```
+```terraform
 module "example_bucket" {
   source = "./modules/bucket"
 
