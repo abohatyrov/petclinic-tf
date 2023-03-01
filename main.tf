@@ -3,11 +3,11 @@ module "petclinic_network" {
 
   region  = var.region
   project = jsondecode(file("petclinic-app-94cd559f8bb4.json")).project_id
-  network = "petclinic-vpc-tf"
+  network = var.network_name
 
   subnetwork = {
     subnet_eu = {
-      name    = "petclinic-subnet-tf-eu-west1"
+      name    = var.subnetwork_name
       range   = "10.24.5.0/24"
       region  = var.region
       private = true
@@ -34,7 +34,7 @@ module "jenkins_instance" {
   source = "./modules/compute_instance"
 
   project         = jsondecode(file("petclinic-app-94cd559f8bb4.json")).project_id
-  instance_name   = "jenkins-server"
+  instance_name   = var.jenkins_name
   network         = module.petclinic_network.network_id
   subnetwork      = module.petclinic_network.subnet[0]
   tags            = ["web", "ssh",]
