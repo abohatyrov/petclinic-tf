@@ -99,3 +99,18 @@ module "example_network" {
 }
 ```
   _Note: VPC, subnet and firewall was used in Jenkins Server._
+
+
+### 3. Bucket module:
+  Create private or public bucket with different storage classes. 
+```
+module "example_bucket" {
+  source = "./modules/bucket"
+
+  project         = local.project_id
+  bucket_name     = "bucket-tf"       # Bucket name
+  storage_class   = "STANDARD"        # Storage class
+  private         = true              # Uniform access
+}
+```
+_Note: bucket was used to save artifacts from Jenkins CI builds._
