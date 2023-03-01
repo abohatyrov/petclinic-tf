@@ -39,3 +39,12 @@ module "jenkins_instance" {
   subnetwork      = module.petclinic_network.subnet[0]
   tags            = ["web", "ssh",]
 }
+
+module "artifacts_bucket" {
+  source = "./modules/bucket"
+
+  project         = jsondecode(file("petclinic-app-94cd559f8bb4.json")).project_id
+  bucket_name     = "petclinic-artifacts-tf"
+  storage_class   = "STANDARD"
+  private         = true
+}
