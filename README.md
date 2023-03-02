@@ -8,7 +8,7 @@ Infrastructure as Code for Petclinic project
 - [x] Create bucket for artifacts
 - [x] Update network module:
   - [x] Subnetwork creation. Add the ability to create several subnets
-- [ ] Add Jenkins startup script using templating
+- [x] Add Jenkins startup script using templating
 - [ ] Start use terrafrom auto documentation
 
 ---
@@ -113,4 +113,4 @@ module "example_bucket" {
   private         = true              # Uniform access
 }
 ```
-_Note: bucket was used to save artifacts from Jenkins CI builds._
+_Note: bucket was used to save artifacts from Jenkins CI builds, and to save Jenkins backup files._
