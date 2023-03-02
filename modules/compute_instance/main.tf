@@ -8,12 +8,21 @@ data "google_service_account" "petclinic-app" {
   account_id = "petclinic-sa"
 }
 
+data "template_file" "jenkins" {
+  template = file("${path.module}/jenkins-startup.tpl")
+  vars = {
+    backup_file = ""
+  }
+}
+
 resource "google_compute_instance" "petclinic-app" {
   project      = var.project
   name         = var.instance_name
   machine_type = "e2-medium"
   zone         = var.zone
   tags         = var.tags
+
+  metadata_startup_script = data.template_file.jenkins.rendered
 
   boot_disk {
     initialize_params {

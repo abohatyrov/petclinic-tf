@@ -52,3 +52,12 @@ module "artifacts_bucket" {
   storage_class   = "STANDARD"
   private         = true
 }
+
+module "jenkins_backups_bucket" {
+  source = "./modules/bucket"
+
+  project         = local.project_id
+  bucket_name     = "jenkins-backups-tf"
+  storage_class   = "STANDARD"
+  private         = true
+}
