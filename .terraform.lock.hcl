@@ -36,25 +36,3 @@ provider "registry.terraform.io/hashicorp/template" {
     "zh:c979425ddb256511137ecd093e23283234da0154b7fa8b21c2687182d9aea8b2",
   ]
 }
-
-provider "registry.terraform.io/taiidani/jenkins" {
-  version     = "0.10.0"
-  constraints = "0.10.0"
-  hashes = [
-    "h1:9/s/pkARErsxAHrP5bJqwWBODdUiuYF/7jVrphS+QKc=",
-    "zh:1be6d72f56abc1a36f579cf1e959c99606c5efcda948f94297bc6ce27be734cb",
-    "zh:4e3e8a43c15ba2b2a55d3e4b7cd07ae746879439a2e2709ca2719e04493659c3",
-    "zh:5407a14be52f9a42445c08571d928209ee13ddd68f914d327494cce194fe1c4a",
-    "zh:69f1174c2e01f0ca1569f037b9b9d279ab6e66129079a1f1678e36710e932d72",
-    "zh:8eaeaab4fd26ba61e48ed2ebf7465de2b5dc2c6ebf766a08dfa2320d16b2ae00",
-    "zh:9227146b7d294b39056dd69785cd365b8f6c7b653405271e26724854bc0b73ad",
-    "zh:954d8bcc9d1441b049abd08e6a8798822be882b88abd1c98f5f1967ea66c75dd",
-    "zh:98d091573cda0cf07cad39e74f1fc788b63f402ee8c92f2cdfa424530c396403",
-    "zh:a913350aa4b16b44871314d603e989cd6f1bbceefec39980e23c1cdaa548cd35",
-    "zh:bf484557f61507b198dde9b5495c3c8eee1efe78fafe278a97521743f89d974f",
-    "zh:d4aedbb8d4b2bf921ba13cf426efc7a3590d365a971e672a65b094ef6007fffe",
-    "zh:d5250e4ae52600ee9b4c61ff2495546f7ee647ef195b4c5188037dbdff4ffedc",
-    "zh:f5975ce1bc0ddc4e81a8e745d25293ccf5e5b5163fa24a5a8e4d46a74b5f77a6",
-    "zh:f889b87a30a36a45d339769f81bce5fb3fa8875d19cf4c7d3019ebb1012565f2",
-  ]
-}

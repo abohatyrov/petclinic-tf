@@ -9,6 +9,8 @@ Infrastructure as Code for Petclinic project
 - [x] Update network module:
   - [x] Subnetwork creation. Add the ability to create several subnets
 - [x] Add Jenkins startup script using templating
+- [ ] Add GKE module
+- [ ] Add SQL instance module
 - [ ] Start use terrafrom auto documentation
 
 ---
