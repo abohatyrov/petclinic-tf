@@ -9,7 +9,7 @@ Infrastructure as Code for Petclinic project
 - [x] Update network module:
   - [x] Subnetwork creation. Add the ability to create several subnets
 - [x] Add Jenkins startup script using templating
-- [ ] Add GKE module
+- [ ] Add GKE module with network (https://antonputra.com/google/create-gke-cluster-using-terraform/#create-cloud-nat-in-gcp-using-terraform)
 - [ ] Add SQL instance module
 - [ ] Start use terrafrom auto documentation
 
