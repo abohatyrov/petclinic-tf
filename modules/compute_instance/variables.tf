@@ -32,3 +32,13 @@ variable "subnetwork" {
     type    = string
     default = "europe-west1-b"
 }
+
+variable "jenkins" {
+  type    = bool
+  default = false
+}
+
+variable "service_account_email" {
+  type    = string
+  default = "service_account@email.com"
+}

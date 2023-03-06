@@ -7,6 +7,5 @@ output "version" {
 }
 
 output "ip_addres" {
-  sensitive   = true
   value       = google_container_cluster.petclinic-app.endpoint
 }

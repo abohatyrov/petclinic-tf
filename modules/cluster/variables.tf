@@ -8,6 +8,11 @@ variable "region" {
     default = "europe-west1"
 }
 
+variable "zone" {
+    type    = string
+    default = "europe-west1-b"
+}
+
 variable "cluster_name" {
   type    = string
   default = "gke-cluster"

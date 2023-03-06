@@ -3,11 +3,6 @@ data "google_compute_image" "petclinic-app" {
   project = "debian-cloud"
 }
 
-data "google_service_account" "petclinic-app" {
-  project    = var.project
-  account_id = "petclinic-sa"
-}
-
 data "template_file" "jenkins" {
   template = file("${path.module}/jenkins-startup.tpl")
   vars = {
@@ -22,7 +17,7 @@ resource "google_compute_instance" "petclinic-app" {
   zone         = var.zone
   tags         = var.tags
 
-  metadata_startup_script = data.template_file.jenkins.rendered
+  metadata_startup_script = var.jenkins ? data.template_file.jenkins.rendered : ""
 
   boot_disk {
     initialize_params {
@@ -31,7 +26,7 @@ resource "google_compute_instance" "petclinic-app" {
   }
 
   service_account {
-    email = data.google_service_account.petclinic-app.email
+    email  = var.service_account_email
     scopes = ["cloud-platform"]
   }
 
