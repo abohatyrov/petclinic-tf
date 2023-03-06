@@ -27,3 +27,18 @@ variable "subnetwork_name" {
     type    = string
     default = "subnetwork"
 }
+
+variable "cluster_name" {
+    type    = string
+    default = "gke-cluster"
+}
+
+variable "pod_range" {
+    type    = string
+    default = "gke-pod_range"
+}
+
+variable "service_range" {
+    type    = string
+    default = "gke-pod_range"
+}
