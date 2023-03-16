@@ -7,7 +7,5 @@ output "network_name" {
 }
 
 output "subnet" {
-  value = [
-    for subnet in google_compute_subnetwork.petclinic-app : subnet.id
-  ]
+  value = google_compute_subnetwork.petclinic-app.id
 }

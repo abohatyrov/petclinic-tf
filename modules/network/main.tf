@@ -6,7 +6,6 @@ resource "google_compute_network" "petclinic-app" {
 
 resource "google_compute_subnetwork" "petclinic-app" {
   project  = var.project
-  for_each = var.secondary_ip_ranges
 
   name                     = var.subnetwork.name
   ip_cidr_range            = var.subnetwork.range
@@ -15,8 +14,13 @@ resource "google_compute_subnetwork" "petclinic-app" {
   private_ip_google_access = var.subnetwork.private
 
   secondary_ip_range {
-    range_name    = each.value.name
-    ip_cidr_range = each.value.ip_range
+    range_name    = var.secondary_ip_ranges.pod.name
+    ip_cidr_range = var.secondary_ip_ranges.pod.ip_range
+  }
+
+  secondary_ip_range {
+    range_name    = var.secondary_ip_ranges.service.name
+    ip_cidr_range = var.secondary_ip_ranges.service.ip_range
   }
 }
 

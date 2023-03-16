@@ -55,7 +55,7 @@ module "jenkins_instance" {
   jenkins       = true
   instance_name = var.jenkins_name
   network       = module.petclinic_network.network_id
-  subnetwork    = module.petclinic_network.subnet[0]
+  subnetwork    = module.petclinic_network.subnet
   tags          = ["web", "ssh",]
 
   service_account_email = data.google_service_account.petclinic-app.email
@@ -82,9 +82,13 @@ module "jenkins_backups_bucket" {
 module "k8s_cluster" {
   source = "./modules/cluster"
 
-  project      = local.project_id
-  cluster_name = var.cluster_name
-  zone         = var.zone 
+  project       = local.project_id
+  cluster_name  = var.cluster_name
+  zone          = var.zone 
+  network       = module.petclinic_network.network_id
+  subnetwork    = module.petclinic_network.subnet
+  pod_range     = var.pod_range
+  service_range = var.service_range
 
   service_account_email = data.google_service_account.petclinic-app.email
 }
